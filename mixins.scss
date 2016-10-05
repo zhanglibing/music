@@ -1,0 +1,54 @@
+$m-size:1068px;
+$s-size:736px;
+@mixin onm{
+  @media screen and(max-width:$m-size) {
+    @content;
+  }
+}
+@mixin ons{
+  @media screen and(max-width:$s-size) {
+    @content;
+  }
+}
+$S-size:768px;
+@mixin onS{
+  @media screen and(max-width:$S-size) {
+    @content;
+  }
+}
+@mixin juzhong{
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom:0;
+  margin: auto;
+}
+%juzhong{
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom:0;
+  margin: auto;
+}
+@mixin shangxia{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+@mixin left-right{
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+@mixin fangxing($size){
+  width: $size;
+  height: $size;
+}
+@mixin yuan($size:40px){
+  @include fangxing($size);
+  border-radius: 50%;
+}

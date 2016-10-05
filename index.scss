@@ -1,0 +1,567 @@
+@import "mixins";
+*{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+audio{
+  display: none;
+}
+.playlist{
+  width: 540px;
+  height: 460px;
+  background: #1B1B1B;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 115px;
+  margin: auto;
+  z-index: 2;
+  transition:height 0.8s ease;
+  &.shouqi{
+    height:0;
+    transition:height 0.8s ease;
+  }
+  .liebiao{
+    width: 520px;
+    height: 52px;
+    background: #000;
+    border-bottom: 1px solid #262626;
+    padding-right: 20px;
+    position: relative;
+    .tab{
+      line-height: 52px;
+      width: 112px;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 100;
+      background: #262626;
+      float: left;
+      position: relative;
+      .sanjiao{
+        display: block;
+        width: 15px;
+        height: 8px;
+        position: absolute;
+        left: 0;
+        left: 0;
+        right: 0;
+        bottom: -8px;
+        margin: auto;
+        background: url(images/bg.png);
+        background-position: -504px -28px;
+      }
+
+    }
+    .clear-list{
+      float: right;
+      color: #999;
+      line-height: 52px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .close{
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      background: url(images/bg.png);
+      background-position: -269px -97px;
+    }
+  }
+  .list{
+    padding:8px 0;
+    color: #999;
+    li{
+      height: 24px;
+      line-height: 24px;
+      transition: all 0.4s ease;
+      font-size: 12px;
+      color: #999;
+      padding-left: 20px;
+      position: relative;
+      cursor: pointer;
+      &:hover{
+        background: #000;
+      }
+      &.playing{
+        color:#10A029;
+        &:hover{
+          background: #000;
+        }
+      }
+      .song-name{
+        float:left;
+        width:60%;
+      }
+      .singer{
+        width:30%;
+        float: left;
+      }
+      .duration{
+        float: left;
+        width: 10%;
+      }
+      .opration{
+        display: none;
+        position: absolute;
+        width: 120px;
+        height: 14px;
+        right: 0;
+        top: 5px;
+        z-index: 1000;
+        background: #000000;
+        div{
+          float: left;
+          width: 16px;
+          height: 14px;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+        .like{
+          background: url(images/bg.png) 0 -127px;
+          &:hover{
+            background-position:  -0px -145px;
+          }
+        }
+        .share{
+          background: url(images/bg.png) -16px -127px;
+          &:hover{
+            background-position:  -16px -145px;
+          }
+        }
+        .shoucang{
+          background: url(images/bg.png) -32px -127px;
+          &:hover{
+            background-position:  -32px -145px;
+          }
+        }
+        .delete{
+          background: url(images/bg.png) -48px -127px;
+          &:hover{
+            background-position:  -48px -145px;
+          }
+        }
+      }
+      &:hover .opration{
+        display: block;
+      }
+    }
+  }
+}
+.play{
+  width: 540px;
+  height: 115px;
+  background: #000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  border-bottom: 10px solid;
+  margin: auto;
+  z-index: 10;
+
+  .audio-pic{
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 10px;
+    float: left;
+    background: url(images/music.jpg) no-repeat center center;
+    background-size:110px 110px;
+  }
+
+  .center{
+    float: right;
+    width: 430px;
+    font-size: 12px;
+    line-height: 1.5em;
+    p{
+      margin: 5px 0;
+    }
+    .music-name{
+      color: #FFF;
+      height: 20px;
+      width: 300px;
+      overflow: hidden;
+      #music-name{
+        float: left;
+        max-width: 210px;
+        overflow: hidden;
+      }
+      .icon-radio{
+        float: left;
+        width: 75px;
+        height: 20px;
+        margin: 0 0 0 10px;
+        background: url(images/bg.png) -453px -55px;
+      }
+    }
+
+    .singer{
+      color: #828282;
+      display: block;
+      width: 120px;
+      height: 20px;
+      overflow: hidden;
+      margin: 5px 0;
+    }
+    .music-date{
+      color: #595959;
+      height: 20px;
+      margin: 5px 0;
+    }
+    .music-op{
+      height:20px;
+      .like{
+        float: left;
+        width: 16px;
+        height: 14px;
+        margin-right: 5px;
+        cursor: pointer;
+        background: url(images/bg.png) 0 -127px;
+        &:hover{
+          background-position:  -0px -145px;
+        }
+      }
+      .share{
+        float: left;
+        width: 16px;
+        height: 14px;
+        margin-right: 5px;
+        cursor: pointer;
+        background: url(images/bg.png) -16px -127px;
+        &:hover{
+          background-position:  -16px -145px;
+        }
+      }
+    }
+  }
+  .bar{
+    position: absolute;
+    left: 248px;
+    top: 43px;
+    width: 280px;
+    height:42px;
+
+    .previous{
+      background: url(images/bg.png) -69px 0;
+      display: block;
+      vertical-align: top;
+      width: 36px;
+      height: 28px;
+      float: left;
+      margin-top: 7px;
+      margin-left: 3px;
+      border: 0;
+      cursor: pointer;
+      &:hover{
+        background-position: -69px -32px;
+      }
+    }
+    .plays{
+      width: 42px;
+      height: 42px;
+      margin-top: 0;
+      background: url(images/bg.png) -105px 0;
+      display: block;
+      float: left;
+      margin-left: 3px;
+      border: 0;
+      cursor: pointer;
+      &:hover{
+        background-position: -105px -42px;
+      }
+      &.paused{
+        background: url(images/bg.png) -291px -88px;
+        &:hover{
+          background-position: -333px -88px
+        }
+      }
+    }
+    .next{
+      background: url(images/bg.png) -147px 0;
+      vertical-align: top;
+      width: 36px;
+      height: 28px;
+      float: left;
+      margin-top: 7px;
+      margin-left: 3px;
+      border: 0;
+      cursor: pointer;
+      &:hover{
+        background-position: -147px -32px
+      }
+    }
+    .volome{
+      width: 100px;
+      height: 24px;
+      float: left;
+      margin-top: 10px;
+      margin-left: 8px;
+      .volome-mute{
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        background: url(images/bg.png) -189px -3px;
+        float: left;
+        &:hover{
+          background-position: -189px -35px;
+        }
+        &.jingyin{
+          background: url(images/bg.png) -152px -63px;
+        }
+      }
+      .volome-regulate{
+        font-size: 0;
+        background: url(images/bg.png) -291px -11px;
+        display: inline-block;
+        width: 71px;
+        height: 11px;
+        cursor: pointer;
+        float: right;
+        margin-top: 6px;
+        position: relative;
+        .volome-bar{
+          font-size: 0;
+          background: url(images/bg.png) -291px 0;
+          display: inline-block;
+          height: 11px;
+          position: absolute;
+          width: 10%;
+          //background-position: -291px -22px;
+        }
+        .volome-op{
+          background: url(images/bg.png) -366px 0;
+          font-size: 0;
+          width: 6px;
+          height: 11px;
+          position: absolute;
+          left: 10%;
+          top: 0;
+        }
+        &.moving{
+          .volome-bar{
+            background-position: -291px -22px;
+          }
+          .volome-op{
+            background-position: -366px -16px;
+          }
+        }
+      }
+    }
+  }
+  .open-list{
+    background: url(images/bg.png) -222px -97px;
+    display: inline-block;
+    width: 47px;
+    height: 28px;
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 61px;
+    cursor: pointer;
+    div{
+      color: #FFF;
+      font-family: tahoma;
+      font-size: 11px;
+      line-height: 28px;
+      text-align: center;
+      width: 24px;
+      height: 28px;
+      margin-left: 23px;
+    }
+  }
+  .open-lyrics{
+    width: 14px;
+    height: 14px;
+    background: url(images/bg.png) -452px 0;
+    position: absolute;
+    top: 7px;
+    right: 37px;
+    text-indent: -9999px;
+    cursor: pointer;
+  }
+  .time{
+     width:120px;
+     height:20px;
+     position: absolute;
+     //left:150px;
+     bottom:8px;
+    right:20px;
+    color:#fff;
+
+  }
+  .play-order-select{
+    background-color: #383838;
+    width: 32px;
+    //height:0;
+    padding: 5px 0;
+    position: absolute;
+    left: 376px;
+    bottom: 35px;
+    border-radius: 3px;
+    z-index: 999999;
+    display: none;
+    overflow: hidden;
+    &.active{
+      display: block;
+      height:auto;
+      transition:height 0.8s ease;
+    }
+    div{
+      width: 32px;
+      height: 22px;
+      cursor: pointer;
+    }
+    .ordered-brt{
+      background: url(images/bg.png) no-repeat -408px 0;
+      display: block;
+      &:hover{
+        background-position: -408px -22px;
+      }
+    }
+    .unordered-brt{
+      background: url(images/bg.png) no-repeat -408px -44px;
+      display: block;
+      &:hover{
+        background-position: -408px -66px;
+      }
+    }
+    .cycle-singer-brt{
+      background: url(images/bg.png) no-repeat -376px 0;
+      display: block;
+      &:hover{
+        background-position: -376px -22px;
+      }
+    }
+    .cycle-brt{
+      background: url(images/bg.png) no-repeat -376px -44px;
+      display: block;
+
+      &:hover{
+        background-position: -376px -66px;
+      }
+    }
+  }
+  .play-bar{
+    width: 100%;
+    background: #323232;
+    font-size: 0;
+    height: 4px;
+    position: absolute;
+    bottom:0px;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+    .play-current{
+      position: absolute;
+      background: #0cc65b;
+      font-size: 0;
+      display: block;
+      height: 4px;
+      z-index: 3;
+      cursor: pointer;
+    }
+    .yuan{
+      display: block;
+      width: 7px;
+      height: 6px;
+      background: url(images/anniu.png) no-repeat;
+      position: absolute;
+      z-index: 3;
+      top: -1px;
+      left: -3px;
+      cursor: pointer;
+    }
+  }
+  .show-time{
+    display: none;
+    width: 50px;
+    height: 24px;
+    position: absolute;
+    z-index: 999999;
+    left: 293px;
+    bottom: 8px;
+    //&.block{
+    //  display: block;
+    //}
+    #show-time{
+      height: 17px;
+      line-height: 17px;
+      color: #fff;
+      border: solid 1px #666;
+      background: #2f2f2f;
+      font-size: 10px;
+      text-align: center;
+      font-family: Arial,Helvetica;
+      z-index: 99;
+      position: relative;
+    }
+    .square{
+      width: 12px;
+      height: 12px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      margin-left: -6px;
+      border: solid 1px #666;
+      background: #2f2f2f;
+      transform: rotate(45deg);
+      z-index: 10;
+
+    }
+  }
+}
+.circle-brt{
+  background: url(images/bg.png) -219px 0;
+  display: block;
+  vertical-align: top;
+  width: 36px;
+  height: 28px;
+  float: left;
+  margin-top: 7px;
+  margin-left: 3px;
+  border: 0;
+  cursor: pointer;
+  &:hover{
+    background-position: -219px -32px;
+  }
+  &.ordered-brt{
+    background: url(images/bg.png) -291px -32px;
+    display: block;
+    &:hover{
+      background-position:-291px -60px;
+    }
+  }
+  &.unordered-brt{
+    background: url(images/bg.png) -327px -32px;
+    display: block;
+    &:hover{
+      background-position:-327px -60px;
+    }
+  }
+  &.cycle-singer-brt{
+    background: url(images/bg.png) no-repeat -255px 0;;
+    display: block;
+    &:hover{
+      background-position:-255px -32px;
+    }
+  }
+  &.cycle-brt{
+    background: url(images/bg.png) no-repeat -219px 0;
+    display: block;
+    &:hover{
+      background-position:-219px -32px;
+    }
+  }
+}
+
+
+
+
+
+
